@@ -3,6 +3,8 @@
 This is a Flutter project to receive temperature data from esp32 microcontroller.
 Also, this project reads the values ​​of accelerometer, gyroscope and magnetometer through mobile phone sensors and sends all this information plus temperature, longitude and latitude in the form of a packet to a mqtt server.
 
+![Screen-Shot](images/photo_2022-07--2_15-53-14.jpg)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
