@@ -129,7 +129,8 @@ class _SearchScreenState extends State<SearchScreen> {
               },
             );
             break;
-          } else {
+          } //
+          else {
             setState(() {
               counter += 1;
             });
