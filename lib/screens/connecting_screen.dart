@@ -39,7 +39,6 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
   bool isConnected = true;
 
   List<double>? _accelerometerValues;
-  List<double>? _userAccelerometerValues;
   List<double>? _gyroscopeValues;
   List<double>? _magnetometerValues;
   final _streamSubscriptions = <StreamSubscription<dynamic>>[];
@@ -75,15 +74,6 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
       ),
     );
     _streamSubscriptions.add(
-      userAccelerometerEvents.listen(
-        (UserAccelerometerEvent event) {
-          setState(() {
-            _userAccelerometerValues = <double>[event.x, event.y, event.z];
-          });
-        },
-      ),
-    );
-    _streamSubscriptions.add(
       magnetometerEvents.listen(
         (MagnetometerEvent event) {
           setState(() {
@@ -109,13 +99,8 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
         _accelerometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
     final gyroscope =
         _gyroscopeValues?.map((double v) => v.toStringAsFixed(1)).toList();
-    final userAccelerometer = _userAccelerometerValues
-        ?.map((double v) => v.toStringAsFixed(1))
-        .toList();
     final magnetometer =
         _magnetometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
-
-    var char = widget.char;
 
     return Scaffold(
       appBar: AppBar(
@@ -123,7 +108,7 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
           color: Colors.greenAccent,
         ),
         title: Text(
-          widget.device.name,
+          'Embedded',
           style: TextStyle(
             color: Colors.greenAccent,
           ),
@@ -242,6 +227,7 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
 
     final connMessage = MqttConnectMessage()
         .authenticateAs('97522256', 'eFdpPb3p')
+        // ignore: deprecated_member_use
         .keepAliveFor(60)
         .withWillTopic('willtopic')
         .withWillMessage('Will message')

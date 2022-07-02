@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
+        "Embeded",
         "geolocator",
-        "mqtt"
+        "mqtt",
+        "rssi",
+        "willtopic"
     ]
 }

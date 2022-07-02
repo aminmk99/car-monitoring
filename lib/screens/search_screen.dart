@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
     else if (isScanned == false && counter > 0) {
       return Center(
         child: Text(
-          "Embeded was not found!",
+          "Embedded was not found!",
           style: TextStyle(
             color: Colors.white,
             fontSize: 17,
@@ -148,7 +148,7 @@ class _SearchScreenState extends State<SearchScreen> {
       // Connect to the device
       await device.connect();
       isConnected = true;
-      print('connect to embeded');
+      print('connect to embedded');
       readServices();
     } //
     else if (isConnected) {
