@@ -253,7 +253,8 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
 
     const pubTopic = '97522256/amin';
     final builder = MqttClientPayloadBuilder();
-    builder.addString('Temperature $temp, Accelerometer: $acc, Gyroscope: $gyro, Magnetometer: $magnet, Longitude: $y, Latitude: $x');
+    builder.addString(
+        'Temperature $temp, Accelerometer: $acc, Gyroscope: $gyro, Magnetometer: $magnet, Longitude: $y, Latitude: $x');
     client.publishMessage(pubTopic, MqttQos.atLeastOnce, builder.payload!);
 
     return client;
@@ -301,8 +302,9 @@ class _ConnectingScreenState extends State<ConnectingScreen> {
     });
   }
 
-  getCurrentLocation() async{
-    position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  getCurrentLocation() async {
+    position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
     setState(() {
       y = position!.longitude.toStringAsFixed(5);
       x = position!.latitude.toStringAsFixed(5);
